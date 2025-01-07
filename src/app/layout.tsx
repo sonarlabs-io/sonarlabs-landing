@@ -1,31 +1,14 @@
-"use client";
-
 import { Inter } from "next/font/google";
+import Script from 'next/script';
 import "./globals.css";
-import { ThemeProvider, useTheme } from "@/contexts/ThemeContext";
-import { NavigationBar } from '@/components/NavigationBar';
-import { getThemeStyles } from '@/styles/components';
-import { usePathname } from 'next/navigation';
 
 const inter = Inter({ subsets: ["latin"] });
 
-const RootLayoutContent = ({ children }: { children: React.ReactNode }) => {
-  const { theme } = useTheme();
-  const themeStyles = getThemeStyles(theme);
-  const pathname = usePathname();
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
 
-  const isAuthPage = pathname === '/';
-
-  return (
-    <div className={`${themeStyles.layout.main} max-w-screen overflow-x-hidden`}>
-      {!isAuthPage && <NavigationBar />}
-      <main className={`min-h-screen w-full px-4 sm:px-6 lg:px-8 ${
-        !isAuthPage ? 'pt-[calc(var(--navigation-height)+1rem)] sm:pt-[calc(var(--navigation-height)+1.5rem)] lg:pt-[calc(var(--navigation-height)+2rem)]' : ''
-      }`}>
-        {children}
-      </main>
-    </div>
-  );
+export const metadata = {
+  title: "SONAR - Music's Talent Discovery Engine",
+  description: 'Discover emerging artists before they break through with our AI-powered platform.',
 };
 
 export default function RootLayout({
@@ -36,14 +19,28 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        {/* Google Analytics */}
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){window.dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `}
+            </Script>
+          </>
+        )}
       </head>
-      <body className={`${inter.className} antialiased overflow-x-hidden`}>
-        <ThemeProvider>
-          <RootLayoutContent>    
-            {children}
-          </RootLayoutContent>  
-        </ThemeProvider>
+      <body className={`${inter.className} antialiased`}>
+        {children}
       </body>
     </html>
   );
