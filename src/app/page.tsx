@@ -16,6 +16,7 @@ import {
   Mail
 } from 'lucide-react';
 import { InstagramIcon, LinkedInIcon } from '@/components/ui/social-icons';
+import { event } from '@/lib/analytics';
 
 const DEMO_SEARCHES = [
   {
@@ -278,6 +279,48 @@ export default function LandingPage() {
     return num.toString();
   };
 
+  const handleWaitlistClick = () => {
+    event({
+      action: 'join_waitlist_click',
+      category: 'conversion',
+      label: 'hero_section'
+    });
+    window.open('https://form.typeform.com/to/AfyrqfcX', '_blank', 'noopener,noreferrer');
+  };
+
+  const handleDemoClick = () => {
+    event({
+      action: 'schedule_demo_click',
+      category: 'conversion',
+      label: 'hero_section'
+    });
+    window.open('https://cal.com/maxime-laharrague-x1ypf3/sonar', '_blank', 'noopener,noreferrer');
+  };
+
+  const handleSpotifyArtistClick = (artistName: string, section: string) => {
+    event({
+      action: 'artist_profile_click',
+      category: 'engagement',
+      label: `${section}_${artistName}`
+    });
+  };
+
+  const handleNewsletterImpression = () => {
+    event({
+      action: 'newsletter_view',
+      category: 'impression',
+      label: 'footer_section'
+    });
+  };
+
+  const handleSocialClick = (platform: string) => {
+    event({
+      action: 'social_link_click',
+      category: 'engagement',
+      label: platform
+    });
+  };
+
   return (
     <div className="relative min-h-screen bg-background">
       {/* Background Effects */}
@@ -387,7 +430,7 @@ export default function LandingPage() {
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
                     <Button 
                       size="lg" 
-                      onClick={() => window.open('https://form.typeform.com/to/AfyrqfcX', '_blank', 'noopener,noreferrer')}
+                      onClick={handleWaitlistClick}
                       className="group bg-primary hover:bg-primary/90 text-white relative overflow-hidden w-[200px] sm:w-[200px] mx-auto sm:mx-0"
                     >
                       <span className="relative z-10 flex items-center justify-center gap-2">
@@ -399,7 +442,7 @@ export default function LandingPage() {
                       size="lg" 
                       variant="outline" 
                       className="group relative overflow-hidden w-[200px] sm:w-[200px] mx-auto sm:mx-0"
-                      onClick={() => window.open('https://cal.com/maxime-laharrague-x1ypf3/sonar', '_blank', 'noopener,noreferrer')}
+                      onClick={handleDemoClick}
                     >
                       Schedule a demo
                     </Button>
@@ -436,7 +479,10 @@ export default function LandingPage() {
                         {DEMO_SEARCHES[currentSearchIndex].results.map((result, idx) => (
                           <div 
                             key={idx}
-                            onClick={(e) => openSpotifyUrl(result.spotify_url, e)}
+                            onClick={(event: React.MouseEvent) => {
+                              handleSpotifyArtistClick(result.name, 'smart_search');
+                              openSpotifyUrl(result.spotify_url, event);
+                            }}
                             className="flex items-center justify-between p-2 sm:p-3 bg-muted/50 rounded-lg hover:bg-muted/80 transition-colors group cursor-pointer"
                           >
                             <div className="flex items-center gap-4">
@@ -486,7 +532,10 @@ export default function LandingPage() {
                   <div className={`space-y-4 sm:space-y-6 transition-opacity duration-500 ${artistVisible ? 'opacity-100' : 'opacity-0'}`}>
                     <div 
                       className="flex items-center gap-3 sm:gap-4 cursor-pointer group"
-                      onClick={(e) => openSpotifyUrl(DEMO_ARTISTS[currentArtistIndex].spotify_url, e)}
+                      onClick={(event: React.MouseEvent) => {
+                        handleSpotifyArtistClick(DEMO_ARTISTS[currentArtistIndex].name, 'artist_score');
+                        openSpotifyUrl(DEMO_ARTISTS[currentArtistIndex].spotify_url, event);
+                      }}
                     >
                       <img
                         src={DEMO_ARTISTS[currentArtistIndex].image}
@@ -658,7 +707,10 @@ export default function LandingPage() {
                 <div 
                   key={`${artist.id}-${index}`}
                   className="flex-none w-60 sm:w-72 aspect-[4/5] cursor-pointer"
-                  onClick={(e) => openSpotifyUrl(artist.spotify_url || '', e)}
+                  onClick={(event: React.MouseEvent) => {
+                    handleSpotifyArtistClick(artist.name, 'picks_of_week');
+                    openSpotifyUrl(artist.spotify_url || '', event);
+                  }}
                 >
                   <div className="relative h-full rounded-xl overflow-hidden group transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-10" />
@@ -802,7 +854,7 @@ export default function LandingPage() {
                   <Button 
                     size="lg" 
                     className="gap-2 w-[200px] sm:w-[200px] mx-auto sm:mx-0"
-                    onClick={() => window.open('https://form.typeform.com/to/AfyrqfcX', '_blank', 'noopener,noreferrer')}
+                    onClick={handleWaitlistClick}
                   >
                     Join our waitlist <ChevronRight className="h-4 w-4" />
                   </Button>
@@ -810,7 +862,7 @@ export default function LandingPage() {
                     size="lg" 
                     variant="outline"
                     className="border-black hover:bg-black/5 w-[200px] sm:w-[200px] mx-auto sm:mx-0"
-                    onClick={() => window.open('https://cal.com/maxime-laharrague-x1ypf3/sonar', '_blank', 'noopener,noreferrer')}
+                    onClick={handleDemoClick}
                   >
                     Schedule a demo
                   </Button>
@@ -865,7 +917,12 @@ export default function LandingPage() {
               {/* Social Links */}
               <div className="flex items-center justify-center gap-8 sm:gap-6 py-2">
                 <a 
-                  href="mailto:maxime@sonarlabs.io" 
+                  href="mailto:maxime@sonarlabs.io"
+                  onClick={(e: React.MouseEvent) => {
+                    e.preventDefault();
+                    handleSocialClick('email');
+                    window.location.href = 'mailto:maxime@sonarlabs.io';
+                  }}
                   className="text-muted-foreground hover:text-primary transition-colors"
                   aria-label="email"
                 >
@@ -873,6 +930,11 @@ export default function LandingPage() {
                 </a>
                 <a 
                   href="https://www.linkedin.com/company/sonarlabs-io/" 
+                  onClick={(e: React.MouseEvent) => {
+                    e.preventDefault();
+                    handleSocialClick('linkedin');
+                    window.open('https://www.linkedin.com/company/sonarlabs-io/', '_blank', 'noopener,noreferrer');
+                  }}
                   className="text-muted-foreground hover:text-primary transition-colors"
                   aria-label="LinkedIn"
                   target="_blank"
@@ -882,6 +944,11 @@ export default function LandingPage() {
                 </a>
                 <a 
                   href="https://www.instagram.com/sonar.labs" 
+                  onClick={(e: React.MouseEvent) => {
+                    e.preventDefault();
+                    handleSocialClick('instagram');
+                    window.open('https://www.instagram.com/sonar.labs', '_blank', 'noopener,noreferrer');
+                  }}
                   className="text-muted-foreground hover:text-primary transition-colors"
                   aria-label="Instagram"
                   target="_blank"
