@@ -7,7 +7,8 @@ const inter = Inter({ subsets: ["latin"] });
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata = {
-  title: "SONAR - Music's Talent Discovery Engine",
+  // title: "SONAR - Music's Talent Discovery Engine",
+  title: "SONAR",
   description: 'Discover emerging artists before they break through with our AI-powered platform.',
 };
 
