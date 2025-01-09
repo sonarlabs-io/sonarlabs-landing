@@ -330,7 +330,7 @@ export default function LandingPage() {
 
       {/* Stars & Artists Discovery Effect */}
       <div className="absolute inset-0 h-screen pointer-events-none overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-[85vh]">
+      <div className="absolute top-0 right-0 w-[50%] h-[85vh]">
           {/* Stars effect */}
           {[...Array(8)].map((_, i) => (
             <div
@@ -338,7 +338,7 @@ export default function LandingPage() {
               className="absolute h-2 w-2 rounded-full bg-primary/60 blur-[1px] animate-twinkle hidden sm:block"
               style={{
                 top: `${15 + Math.random() * 55}%`,
-                right: `${Math.random() * 100}%`,
+                right: `${Math.random() * 90}%`,
                 animationDelay: `${Math.random() * 3}s`,
                 animationDuration: `${2 + Math.random() * 2}s`
               }}
@@ -352,7 +352,7 @@ export default function LandingPage() {
                 className="absolute h-1 w-1 rounded-full bg-primary/40 animate-twinkle-slow hidden sm:block"
                 style={{
                   top: `${10 + Math.random() * 60}%`,
-                  right: `${Math.random() * 100}%`,
+                  right: `${Math.random() * 90}%`,
                   animationDelay: `${Math.random() * 5}s`,
                   animationDuration: `${4 + Math.random() * 3}s`
                 }}
@@ -366,7 +366,7 @@ export default function LandingPage() {
                 className="absolute hidden sm:block"
                 style={{
                   top: `${20 + Math.random() * 50}%`,
-                  right: `${20 + Math.random() * 60}%`,
+                  right: `${10 + Math.random() * 60}%`,
                 }}
               >
                 <div 
@@ -406,24 +406,25 @@ export default function LandingPage() {
                 <div className="space-y-6 sm:space-y-8 px-4 sm:px-0">
                   <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1]">
                     <span className="inline-block">
-                      Talent scouting
+                      AI talent scouting
                     </span>
                     <br />
                     <span className="inline-block">
-                      meets data
+                      for music.
                     </span>
                   </h1>
                   <p className="text-xl sm:text-2xl md:text-3xl font-bold text-primary leading-[1.2]">
                     <span className="inline-block">
-                      The music industry's most powerful
+                      The industry's most powerful
                     </span>
                     <br />
                     <span className="inline-block">
-                      discovery engine.
+                      artist discovery engine.
                     </span>
                   </p>
                   <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                    We build AI models to detect rising music creators, analyzing millions of data points across platforms to predict breakout potential with a high level of accuracy.
+                  {/* We build AI models to detect rising music creators, analyzing millions of data points across platforms to predict breakout potential with a high level of accuracy. */}
+                  We build models to uncover high-potential artists and predict their future success, transforming how labels, brands and agencies find music talent.
                   </p>
                   
                   {/* CTA Buttons */}
@@ -601,10 +602,10 @@ export default function LandingPage() {
                 <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
                   <Building2 className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Record Labels & Managers</h3>
+                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Labels & Artist Managers</h3>
                 <div className="space-y-3 text-muted-foreground">
                   <p className="leading-relaxed">
-                    Transform your A&R process with data-driven talent discovery. Identify promising artists months before they break through.
+                    Improve your A&R process by identifying promising artists earlier and set yourself up to act fast.
                   </p>
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2">
@@ -689,10 +690,10 @@ export default function LandingPage() {
         {/* Picks of the Week Section */}
         <section className="max-w-6xl mx-auto px-4 py-12 sm:py-16 md:py-24">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3 sm:mb-4">
-            Picks of the week
+            Our artist picks
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground text-center mb-6 sm:mb-8 md:mb-12 px-2">
-            Our model detected significant growth signals for these artists
+            Our model detected strong growth signals for these emerging talents
           </p>
           <div className="relative overflow-hidden">
             <div 
@@ -772,7 +773,7 @@ export default function LandingPage() {
         {/* Stats Section */}
         <section className="max-w-6xl mx-auto py-16 sm:py-24 px-4">
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3 sm:mb-4">
-            Predicting with high accuracy
+            High accuracy
           </h2>
           <p className="text-sm sm:text-base text-center text-muted-foreground mb-8 sm:mb-16 px-2">
             Performance metrics of artists discovered by SONAR
