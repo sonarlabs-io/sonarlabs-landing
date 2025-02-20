@@ -285,7 +285,7 @@ export default function LandingPage() {
       category: 'conversion',
       label: 'hero_section'
     });
-    window.open('https://form.typeform.com/to/AfyrqfcX', '_blank', 'noopener,noreferrer');
+    window.open('https://forms.fillout.com/t/mXdReb6adSus', '_blank', 'noopener,noreferrer');
   };
 
   const handleDemoClick = () => {
