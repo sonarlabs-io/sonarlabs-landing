@@ -405,15 +405,15 @@ export default function LandingPage() {
                 </h1>
                 <p className="text-xl sm:text-2xl md:text-3xl font-bold text-primary leading-[1.2]">
                   <span className="inline-block">
-                    The tech agency for music & 
+                    The tech agency for the music & 
                   </span>
                   <br />
                   <span className="inline-block">
-                    entertainment companies.
+                    entertainment industries.
                   </span>
                 </p>
                 <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-                  We build custom solutions tailored to music and creative industries across operations, scouting research, project management etc.
+                  We build custom systems for music and creative companies to scale their operations and increase their revenue.
                 </p>
                 
                 {/* CTA Buttons */}
@@ -449,7 +449,7 @@ export default function LandingPage() {
           Core Solutions
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground text-center mb-8 sm:mb-16 max-w-2xl mx-auto px-2">
-          Custom AI tools built for the way music businesses actually work
+          Our expertise covers the way music businesses actually work
         </p>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
@@ -573,7 +573,7 @@ export default function LandingPage() {
           Inspirations
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground text-center mb-8 sm:mb-16 max-w-2xl mx-auto px-2">
-          A snapshot of some of our proprietary technologies
+          A snapshot of of our proprietary technologies
         </p>
       <div className="relative -mt-4 sm:-mt-8 px-4 sm:px-4">
         <div className="max-w-6xl mx-auto">
@@ -717,7 +717,7 @@ export default function LandingPage() {
         Trusted by music innovators
         </h2>
         <p className="text-base sm:text-lg text-muted-foreground text-center mb-8 sm:mb-16 max-w-2xl mx-auto px-2">
-          Join industry leaders leveraging custom AI solutions to stay ahead of the curve
+          Join industry leaders leveraging our solutions to stay ahead of the curve
         </p>
         
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
@@ -731,9 +731,9 @@ export default function LandingPage() {
               <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Labels & Managers</h3>
               <div className="space-y-3 text-muted-foreground">
                 <p className="leading-relaxed">
-                  Scale your A&R process with AI that identifies promising artists months before they break.
+                Transform your entire workflow, from A&R to campaign execution. Evaluate prospective artists, optimize release strategies and track what matters.
                 </p>
-                <ul className="space-y-2">
+                {/* <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <div className="h-1 w-1 rounded-full bg-primary" />
                     <span>Custom artist scoring models</span>
@@ -746,7 +746,7 @@ export default function LandingPage() {
                     <div className="h-1 w-1 rounded-full bg-primary" />
                     <span>Competitive intelligence</span>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
           </div>
@@ -758,12 +758,12 @@ export default function LandingPage() {
               <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
                 <Share2 className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
               </div>
-              <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Music Distributors</h3>
+              <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Distributors & Publishers</h3>
               <div className="space-y-3 text-muted-foreground">
                 <p className="leading-relaxed">
-                  Intelligently surface high-potential artists from your catalog to maximize service opportunities.
+                Turn your catalog into a competitive advantage. AI-powered systems that identify opportunities and prove your value to artists and partners.
                 </p>
-                <ul className="space-y-2">
+                {/* <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <div className="h-1 w-1 rounded-full bg-primary" />
                     <span>Catalog intelligence systems</span>
@@ -776,7 +776,7 @@ export default function LandingPage() {
                     <div className="h-1 w-1 rounded-full bg-primary" />
                     <span>Resource allocation optimization</span>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
           </div>
@@ -791,9 +791,9 @@ export default function LandingPage() {
               <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Brands & Agencies</h3>
               <div className="space-y-3 text-muted-foreground">
                 <p className="leading-relaxed">
-                  Connect with emerging artists that perfectly align with your brand values and target demographics.
+                Make every partnership decision with precision, from predicting campaign performance to optimizing marketing spend across channels.
                 </p>
-                <ul className="space-y-2">
+                {/* <ul className="space-y-2">
                   <li className="flex items-center gap-2">
                     <div className="h-1 w-1 rounded-full bg-primary" />
                     <span>Brand-artist matching algorithms</span>
@@ -806,7 +806,7 @@ export default function LandingPage() {
                     <div className="h-1 w-1 rounded-full bg-primary" />
                     <span>Audience overlap analysis</span>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
           </div>
@@ -970,8 +970,8 @@ export default function LandingPage() {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold px-2">
               Let's chat.
               </h2>
-              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-2">
-                We look forward to discussing how we can best help you upscale your music business with AI.
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-3">
+                Reach out to discuss how we can best help you upscale your music business with AI.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2">
                 <Button 
@@ -1044,7 +1044,7 @@ export default function LandingPage() {
                 onClick={(e: React.MouseEvent) => {
                   e.preventDefault();
                   handleSocialClick('email');
-                  window.location.href = 'mailto:maxime@sonarlabs.io';
+                  window.location.href = 'mailto:contact@sonarlabs.io';
                 }}
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="email"
