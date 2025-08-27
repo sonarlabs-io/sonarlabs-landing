@@ -405,7 +405,7 @@ export default function LandingPage() {
                 </h1>
                 <p className="text-xl sm:text-2xl md:text-3xl font-bold text-primary leading-[1.2]">
                   <span className="inline-block">
-                    Tech agency for music & 
+                    The tech agency for music & 
                   </span>
                   <br />
                   <span className="inline-block">
